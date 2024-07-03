@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-color: #150b4f;
+    background-color: #260430;
     color: white;
     padding: 1rem;
     width: 100%;
@@ -20,8 +20,14 @@ header {
 }
 
 #logo {
-    height: 50px;
-    margin-right: 1rem;
+    height: 300px;
+    margin-right: auto;
+    position: absolute;
+    left: 20px;
+}
+
+header h1 {
+    margin: center;
 }
 
 main {
@@ -46,7 +52,7 @@ main {
 #add-task {
     padding: 0.5rem 1rem;
     border: none;
-    background-color: #230d53;
+    background-color: #3c0a48;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -88,4 +94,14 @@ main {
 
 #task-list li button:hover {
     background-color: #c0392b;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
