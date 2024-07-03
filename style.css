@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
 header {
@@ -17,17 +18,17 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 #logo {
-    height: 300px;
-    margin-right: auto;
+    height: 100px; 
     position: absolute;
-    left: 20px;
+    left: 40px;
 }
 
 header h1 {
-    margin: center;
+    margin: 0;
 }
 
 main {
@@ -98,10 +99,10 @@ main {
 
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 0.5px;
     background-color: #000000;
     color: white;
-    position: fixed;
     width: 100%;
+    position: fixed;
     bottom: 0;
 }
