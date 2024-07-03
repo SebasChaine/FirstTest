@@ -6,7 +6,7 @@ document.getElementById('add-task').addEventListener('click', function() {
     li.textContent = taskText;
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Eliminar';
+    deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', function() {
         li.remove();
     });
