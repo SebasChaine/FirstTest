@@ -1,20 +1,27 @@
 document.getElementById('add-task').addEventListener('click', function() {
-    // Escucha el evento de clic en el botón 'Add' y ejecuta la función anónima
-
     // Obtiene el texto ingresado en el campo de nueva tarea
     const taskText = document.getElementById('new-task').value;
+    const taskType = document.getElementById('task-type').value;
 
-    // Si el campo está vacío, no hace nada
-    if (taskText === '') return;
+    // Muestra el mensaje de retroalimentación si el campo está vacío
+    const feedback = document.getElementById('feedback');
+    if (taskText === '') {
+        feedback.style.display = 'block';
+        return;
+    } else {
+        feedback.style.display = 'none';
+    }
 
     // Crea un nuevo elemento <li> para la nueva tarea
     const li = document.createElement('li');
+    li.classList.add(taskType);
 
     // Crea un checkbox para marcar la tarea como completada
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.addEventListener('change', function() {
         li.classList.toggle('completed', checkbox.checked);
+        updateTaskCount();
     });
 
     // Añade el checkbox como hijo del elemento <li>
@@ -29,7 +36,8 @@ document.getElementById('add-task').addEventListener('click', function() {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', function() {
-        li.remove(); // Elimina el elemento <li> al que pertenece este botón
+        li.remove();
+        updateTaskCount();
     });
 
     // Añade el botón de eliminar como hijo del elemento <li>
@@ -40,4 +48,16 @@ document.getElementById('add-task').addEventListener('click', function() {
 
     // Limpia el campo de entrada de nueva tarea después de agregarla
     document.getElementById('new-task').value = '';
+
+    // Actualiza el contador de tareas
+    updateTaskCount();
 });
+
+function updateTaskCount() {
+    const taskList = document.getElementById('task-list');
+    const totalTasks = taskList.children.length;
+    const pendingTasks = Array.from(taskList.children).filter(li => !li.classList.contains('completed')).length;
+
+    document.getElementById('task-count').textContent = totalTasks;
+    document.getElementById('pending-task-count').textContent = pendingTasks;
+}

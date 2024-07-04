@@ -12,9 +12,17 @@
         <h1>Task List To Do</h1>  
     </header>
     <main>
-        <input type="text" id="new-task" placeholder="add your new task">
+        <label for="new-task">New task:</label>
+        <input type="text" id="new-task" placeholder="add here your new task">
+        <select id="task-type">
+            <option value="non-urgent">Non-Urgent</option>
+            <option value="urgent">Urgent</option>
+        </select>
         <button id="add-task">Add</button>
+        <p id="feedback" style="color: red; display: none;">Please enter a task.</p>
         <ul id="task-list"></ul>
+        <p>Total Tasks: <span id="task-count">0</span></p>
+        <p>Pending Tasks: <span id="pending-task-count">0</span></p>
     </main>
     <footer>
         <p>Follow me</p>
